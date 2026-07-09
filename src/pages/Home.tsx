@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const CHARACTERS = [
-  { nameZh: "电次", subtitleZh: "电锯恶魔人 · 主角", status: "存活", statusClass: "green", img: "/images/denji-anime.png", emoji: "⛓️", descZh: "欠债累累的孤儿，与波奇塔融合成为电锯人。他的目标平凡得可笑——食物、住所、与人交往——但在藤本树的世界里，即便是微小的梦想也要付出毁灭性的代价。" },
-  { nameZh: "蕾塞", subtitleZh: "炸弹恶魔人 · 苏联特工", status: "死亡", statusClass: "red", img: "/images/reze-casual.png", emoji: "💣", descZh: "自幼被当作苏联特工培养的炸弹恶魔人，没有自己的名字。她与电次短暂的羁绊是第一部的感情核心——真实、无法调和、在还未开始时就已结束。", deathZh: "在前往与电次约定的海边之约前，被玛奇玛杀死。" },
-  { nameZh: "帕瓦", subtitleZh: "血之魔人 · 公安对魔4课", status: "死亡", statusClass: "red", img: "/images/power-anime.png", emoji: "🩸", descZh: "被迫加入公安对魔特异的血之魔人。混乱、自私，却又暗藏着整部作品中最人性的光辉——她学会了爱一个人意味着什么。", deathZh: "被玛奇玛在电次面前射杀。" },
-  { nameZh: "早川秋", subtitleZh: "公安恶魔猎人", status: "死亡", statusClass: "red", img: "/images/aki-anime.png", emoji: "🔫", descZh: "纪律严明的猎人，成为了电次和帕瓦的家人。他的契约让他付出了一切——而未来恶魔早已让他看到了结局。", deathZh: "被枪之恶魔附身，在漫天大雪中被电次亲手杀死。" },
-  { nameZh: "玛奇玛", subtitleZh: "支配恶魔 · 公安局长", status: "死亡", statusClass: "red", img: "/images/makima-anime.png", emoji: "👁️", descZh: "支配恶魔的人类形态。第一部的核心反派——她策划了一切，系统性地摧毁了电次的世界。", deathZh: "被电次吃掉。后转生为那由多。" },
-  { nameZh: "姬野", subtitleZh: "公安恶魔猎人", status: "死亡", statusClass: "red", img: "/images/himeno-anime.png", emoji: "🚬", descZh: "将眼睛献给幽灵恶魔的资深猎人，目睹了每一位搭档的死亡。藤本树笔下最像人的角色之一。", deathZh: "为了拯救电次将身体献给了幽灵恶魔。" },
-  { nameZh: "波奇塔", subtitleZh: "电锯恶魔 · 真身", status: "已融合", statusClass: "blue", img: "/images/pochita-anime.png", emoji: "🐶", descZh: "地狱中最令人恐惧的存在——却因为电次需要一个伙伴而甘愿做一只小狗。" },
-  { nameZh: "光熙", subtitleZh: "中国第一恶魔猎人 · 弓矢恶魔人", status: "死亡（暂）", statusClass: "red", img: "/images/quanxi-anime.png", emoji: "🏹", descZh: "中国最强的恶魔猎人——沉默、极其致命、对同伴极度忠诚。", deathZh: "与同伴一同被玛奇玛斩首。后被电锯人复活。" },
-  { nameZh: "三鹰朝", subtitleZh: "战争恶魔人 · 第二部主角", status: "存活", statusClass: "green", img: "/images/asa-anime.png", emoji: "⚔️", descZh: "被社会孤立的女高中生，成为了战争恶魔的宿主。两个拼命寻找真实的人。" }
+  { nameZh: "电次", subtitleZh: "电锯恶魔人 · 主角", status: "存活", statusClass: "green", img: "/images/denji-anime.png", route: "/denji", emoji: "⛓️", descZh: "欠债累累的孤儿，与波奇塔融合成为电锯人。他的目标平凡得可笑——食物、住所、与人交往——但在藤本树的世界里，即便是微小的梦想也要付出毁灭性的代价。" },
+  { nameZh: "蕾塞", subtitleZh: "炸弹恶魔人 · 苏联特工", status: "死亡", statusClass: "red", img: "/images/reze-casual.png", route: "/reze", emoji: "💣", descZh: "自幼被当作苏联特工培养的炸弹恶魔人，没有自己的名字。她与电次短暂的羁绊是第一部的感情核心——真实、无法调和、在还未开始时就已结束。", deathZh: "在前往与电次约定的海边之约前，被玛奇玛杀死。" },
+  { nameZh: "帕瓦", subtitleZh: "血之魔人 · 公安对魔4课", status: "死亡", statusClass: "red", img: "/images/power-anime.png", route: "/power", emoji: "🩸", descZh: "被迫加入公安对魔特异的血之魔人。混乱、自私，却又暗藏着整部作品中最人性的光辉——她学会了爱一个人意味着什么。", deathZh: "被玛奇玛在电次面前射杀。" },
+  { nameZh: "早川秋", subtitleZh: "公安恶魔猎人", status: "死亡", statusClass: "red", img: "/images/aki-anime.png", route: "/aki", emoji: "🔫", descZh: "纪律严明的猎人，成为了电次和帕瓦的家人。他的契约让他付出了一切——而未来恶魔早已让他看到了结局。", deathZh: "被枪之恶魔附身，在漫天大雪中被电次亲手杀死。" },
+  { nameZh: "玛奇玛", subtitleZh: "支配恶魔 · 公安局长", status: "死亡", statusClass: "red", img: "/images/makima-anime.png", route: "/makima", emoji: "👁️", descZh: "支配恶魔的人类形态。第一部的核心反派——她策划了一切，系统性地摧毁了电次的世界。", deathZh: "被电次吃掉。后转生为那由多。" },
+  { nameZh: "姬野", subtitleZh: "公安恶魔猎人", status: "死亡", statusClass: "red", img: "/images/himeno-anime.png", route: "/himeno", emoji: "🚬", descZh: "将眼睛献给幽灵恶魔的资深猎人，目睹了每一位搭档的死亡。藤本树笔下最像人的角色之一。", deathZh: "为了拯救电次将身体献给了幽灵恶魔。" },
+  { nameZh: "波奇塔", subtitleZh: "电锯恶魔 · 真身", status: "已融合", statusClass: "blue", img: "/images/pochita-anime.png", route: "/pochita", emoji: "🐶", descZh: "地狱中最令人恐惧的存在——却因为电次需要一个伙伴而甘愿做一只小狗。" },
+  { nameZh: "光熙", subtitleZh: "中国第一恶魔猎人 · 弓矢恶魔人", status: "死亡（暂）", statusClass: "red", img: "/images/quanxi-anime.png", route: "/quanxi", emoji: "🏹", descZh: "中国最强的恶魔猎人——沉默、极其致命、对同伴极度忠诚。", deathZh: "与同伴一同被玛奇玛斩首。后被电锯人复活。" },
+  { nameZh: "三鹰朝", subtitleZh: "战争恶魔人 · 第二部主角", status: "存活", statusClass: "green", img: "/images/asa-anime.png", route: "/asa", emoji: "⚔️", descZh: "被社会孤立的女高中生，成为了战争恶魔的宿主。两个拼命寻找真实的人。" }
 ];
 
 const STORY_ARCS = [
@@ -47,7 +47,6 @@ function AdBanner({ label }: { label: string }) {
         data-ad-slot="1234567890"
         data-ad-format="horizontal"
         data-full-width-responsive="true"></ins>
-      <script>{(adsbygoogle = window.adsbygoogle || []).push({})}</script>
     </div>
   );
 }
@@ -82,16 +81,76 @@ function FloatingParticles() {
   );
 }
 
+/** Smooth scroll to a section, works on mobile */
+function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function NavLink({ label, section }: { label: string; section: string }) {
+  return (
+    <span
+      onClick={() => scrollToSection(section)}
+      style={{
+        fontSize: '13px',
+        fontWeight: 510,
+        color: 'rgba(247,248,248,0.6)',
+        letterSpacing: '0.02em',
+        cursor: 'pointer',
+        transition: 'color 0.2s',
+        WebkitTapHighlightColor: 'transparent',
+      }}
+      onMouseEnter={e => (e.currentTarget.style.color = '#f7f8f8')}
+      onMouseLeave={e => (e.currentTarget.style.color = 'rgba(247,248,248,0.6)')}
+    >
+      {label}
+    </span>
+  );
+}
+
+function FooterLink({ label, section }: { label: string; section: string }) {
+  return (
+    <span
+      onClick={() => scrollToSection(section)}
+      style={{
+        fontSize: '11px',
+        color: 'rgba(255,255,255,0.15)',
+        letterSpacing: '0.15em',
+        textTransform: 'uppercase',
+        cursor: 'pointer',
+        transition: 'color 0.2s',
+        fontWeight: 510,
+        WebkitTapHighlightColor: 'transparent',
+      }}
+      onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
+      onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.15)'}
+    >
+      {label}
+    </span>
+  );
+}
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#08090a', color: '#f7f8f8', fontFamily: "'Inter', system-ui, -apple-system, sans-serif", fontFeatureSettings: "'cv01', 'ss03'", overflowX: 'hidden' }}>
+    <div style={{
+      minHeight: '100vh',
+      backgroundColor: '#08090a',
+      color: '#f7f8f8',
+      fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+      fontFeatureSettings: "'cv01', 'ss03'",
+      overflowX: 'hidden',
+      cursor: 'default',
+      WebkitOverflowScrolling: 'touch',
+    }}>
       <FloatingParticles />
 
       {/* ─── NAV ─── */}
@@ -101,6 +160,7 @@ export default function Home() {
         padding: '16px 32px',
         backgroundColor: scrolled ? 'rgba(8,9,10,0.85)' : 'transparent',
         backdropFilter: scrolled ? 'blur(20px) saturate(1.4)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(20px) saturate(1.4)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(255,255,255,0.05)' : '1px solid transparent',
         transition: 'all 0.4s cubic-bezier(0.25,0.1,0.25,1)'
       }}>
@@ -109,14 +169,10 @@ export default function Home() {
           <span style={{ color: '#c8001a', fontSize: '20px', fontWeight: 590, letterSpacing: '-0.02em' }}>链锯人宇宙</span>
         </div>
         <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
-          {['角色', '简介', '剧情', '哲学'].map(item => (
-            <a key={item} href={`#${item === '角色' ? 'characters' : item === '简介' ? 'intro' : item === '剧情' ? 'story' : 'philosophy'}`}
-              style={{ fontSize: '13px', fontWeight: 510, color: 'rgba(247,248,248,0.6)', letterSpacing: '0.02em', textDecoration: 'none', transition: 'color 0.2s' }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#f7f8f8')}
-              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(247,248,248,0.6)')}>
-              {item}
-            </a>
-          ))}
+          <NavLink label="角色" section="characters" />
+          <NavLink label="简介" section="intro" />
+          <NavLink label="剧情" section="story" />
+          <NavLink label="哲学" section="philosophy" />
         </div>
       </nav>
 
@@ -140,19 +196,20 @@ export default function Home() {
             欲望、虚无、暴力与爱的诗篇
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.45 }}>
-            <a href="#characters" style={{
+            <span onClick={() => scrollToSection('characters')} style={{
               display: 'inline-flex', alignItems: 'center', gap: '10px',
               padding: '12px 28px', borderRadius: '6px',
               backgroundColor: 'rgba(200,0,26,0.9)', color: '#fff',
               fontSize: '14px', fontWeight: 510, letterSpacing: '0.02em',
-              textDecoration: 'none', transition: 'all 0.3s',
-              boxShadow: '0 0 30px rgba(200,0,26,0.2)'
+              cursor: 'pointer', transition: 'all 0.3s',
+              boxShadow: '0 0 30px rgba(200,0,26,0.2)',
+              WebkitTapHighlightColor: 'transparent',
             }}
               onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#c8001a'; e.currentTarget.style.boxShadow = '0 0 50px rgba(200,0,26,0.4)'; }}
               onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(200,0,26,0.9)'; e.currentTarget.style.boxShadow = '0 0 30px rgba(200,0,26,0.2)'; }}>
               <span>探索角色</span>
               <span style={{ fontSize: '16px' }}>↓</span>
-            </a>
+            </span>
           </motion.div>
         </div>
       </section>
@@ -171,11 +228,14 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '12px' }}>
             {CHARACTERS.map((char, i) => (
               <motion.div key={char.nameZh} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
+                onClick={() => { window.location.href = char.route; }}
                 style={{
                   backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '8px',
                   border: '1px solid rgba(255,255,255,0.06)', overflow: 'hidden',
                   transition: 'all 0.4s cubic-bezier(0.25,0.1,0.25,1)',
-                  display: 'flex', flexDirection: 'column'
+                  display: 'flex', flexDirection: 'column',
+                  cursor: 'pointer',
+                  WebkitTapHighlightColor: 'transparent',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.035)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
                 onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
@@ -191,7 +251,8 @@ export default function Home() {
                     padding: '4px 10px', borderRadius: '4px',
                     backgroundColor: char.statusClass === 'green' ? 'rgba(16,185,129,0.25)' : char.statusClass === 'blue' ? 'rgba(96,165,250,0.25)' : 'rgba(200,0,26,0.25)',
                     color: char.statusClass === 'green' ? '#34d399' : char.statusClass === 'blue' ? '#93c5fd' : '#f87171',
-                    backdropFilter: 'blur(8px)'
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                   }}>{char.status}</div>
                 </div>
                 <div style={{ padding: '20px 24px 24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -308,14 +369,10 @@ export default function Home() {
           Chainsaw Man © 藤本树 / Shueisha. 本网站为粉丝向非官方站点。
         </p>
         <div style={{ marginTop: '32px', display: 'flex', justifyContent: 'center', gap: '24px' }}>
-          {['角色', '简介', '剧情', '哲学'].map(item => (
-            <a key={item} href={`#${item === '角色' ? 'characters' : item === '简介' ? 'intro' : item === '剧情' ? 'story' : 'philosophy'}`}
-              style={{ fontSize: '11px', color: 'rgba(255,255,255,0.15)', letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 510 }}
-              onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.4)'}
-              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.15)'}>
-              {item}
-            </a>
-          ))}
+          <FooterLink label="角色" section="characters" />
+          <FooterLink label="简介" section="intro" />
+          <FooterLink label="剧情" section="story" />
+          <FooterLink label="哲学" section="philosophy" />
         </div>
       </footer>
     </div>
