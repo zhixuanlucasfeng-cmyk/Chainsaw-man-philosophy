@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "REZE — Chainsaw Man Universe"
+version = "1.0.0"
+id = "artifacts/reze-csm"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21704
+
+[services.development]
+run = "pnpm --filter @workspace/reze-csm run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/reze-csm", "run", "build" ]
+publicDir = "artifacts/reze-csm/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21704"
+BASE_PATH = "/"

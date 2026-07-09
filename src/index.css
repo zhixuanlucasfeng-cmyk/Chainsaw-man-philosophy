@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Serif+SC:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;400;700&family=Share+Tech+Mono&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-primary-border: var(--primary-border);
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-secondary-border: var(--secondary-border);
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-border: var(--muted-border);
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-border: var(--accent-border);
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-destructive-border: var(--destructive-border);
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-accent-border: var(--sidebar-accent-border);
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root, .dark {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+  --opaque-button-border-intensity: -8;
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  --background: 0 0% 4%;
+  --foreground: 30 10% 75%;
+  --border: 0 100% 7% / 0.3;
+  --card: 0 0% 11%;
+  --card-foreground: 30 10% 75%;
+  --card-border: 0 0% 0%;
+  --primary: 350 100% 39%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 11%;
+  --secondary-foreground: 30 10% 88%;
+  --muted: 0 0% 11%;
+  --muted-foreground: 30 10% 60%;
+  --accent: 350 100% 39%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 350 100% 39%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 0 0% 17%;
+  --ring: 350 100% 39%;
+  --popover: 0 0% 7%;
+  --popover-foreground: 30 10% 75%;
+  --popover-border: 0 0% 20%;
+  --sidebar: 0 0% 7%;
+  --sidebar-foreground: 30 10% 75%;
+  --sidebar-border: 0 0% 20%;
+  --sidebar-primary: 350 100% 39%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 17%;
+  --sidebar-accent-foreground: 30 10% 75%;
+  --sidebar-ring: 350 100% 39%;
+  --chart-1: 350 100% 39%;
+  --chart-2: 30 10% 88%;
+  --chart-3: 0 0% 17%;
+  --chart-4: 0 0% 11%;
+  --chart-5: 0 0% 4%;
+
+  --red: #c8001a;
+  --deep-red: #7a0010;
+  --black: #0a0a0a;
+  --off-black: #111111;
+  --ash: #1c1c1c;
+  --smoke: #2a2a2a;
+  --bone: #e8dfd0;
+  --gold: #d4a017;
+  --text: #c9bfb2;
+
+  --app-font-sans: 'Noto Serif JP', serif;
+  --app-font-serif: 'Noto Serif JP', serif;
+  --app-font-mono: 'Share Tech Mono', monospace;
+  --radius: 0rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-serif antialiased bg-background text-foreground;
+    cursor: crosshair;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
