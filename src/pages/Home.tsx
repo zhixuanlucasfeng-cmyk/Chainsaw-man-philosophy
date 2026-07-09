@@ -10,7 +10,29 @@ const CHARACTERS = [
   { nameZh: "姬野", subtitleZh: "公安恶魔猎人", status: "死亡", statusClass: "red", img: "/images/himeno-anime.png", route: "/himeno", emoji: "🚬", descZh: "将眼睛献给幽灵恶魔的资深猎人，目睹了每一位搭档的死亡。藤本树笔下最像人的角色之一。", deathZh: "为了拯救电次将身体献给了幽灵恶魔。" },
   { nameZh: "波奇塔", subtitleZh: "电锯恶魔 · 真身", status: "已融合", statusClass: "blue", img: "/images/pochita-anime.png", route: "/pochita", emoji: "🐶", descZh: "地狱中最令人恐惧的存在——却因为电次需要一个伙伴而甘愿做一只小狗。" },
   { nameZh: "光熙", subtitleZh: "中国第一恶魔猎人 · 弓矢恶魔人", status: "死亡（暂）", statusClass: "red", img: "/images/quanxi-anime.png", route: "/quanxi", emoji: "🏹", descZh: "中国最强的恶魔猎人——沉默、极其致命、对同伴极度忠诚。", deathZh: "与同伴一同被玛奇玛斩首。后被电锯人复活。" },
-  { nameZh: "三鹰朝", subtitleZh: "战争恶魔人 · 第二部主角", status: "存活", statusClass: "green", img: "/images/asa-anime.png", route: "/asa", emoji: "⚔️", descZh: "被社会孤立的女高中生，成为了战争恶魔的宿主。两个拼命寻找真实的人。" }
+  { nameZh: "三鹰朝", subtitleZh: "战争恶魔人 · 第二部主角", status: "存活", statusClass: "green", img: "/images/asa-anime.png", route: "/asa", emoji: "⚔️", descZh: "被社会孤立的女高中生，成为了战争恶魔的宿主。两个拼命寻找真实的人。" },
+  { nameZh: "那由多", subtitleZh: "支配恶魔 · 玛奇玛转生", status: "存活", statusClass: "green", img: "/images/makima.png", route: "/nayuta", emoji: "👧", descZh: "玛奇玛死后转生为的少女。被电次收养并当作妹妹抚养。她继承了支配恶魔的力量，却拥有与玛奇玛截然不同的纯真——在爱与控制的边界上，她选择了被爱。", noPage: true },
+  { nameZh: "天使恶魔", subtitleZh: "公安对魔4课", status: "存活", statusClass: "green", img: "", route: "/angel", emoji: "👼", descZh: "触碰他人会缩短其寿命的天使恶魔。被迫加入公安后成为秋的搭档。沉默、温柔、对生命流逝无动于衷——直到秋让他重新学会了在乎。", deathZh: "被玛奇玛操控后失去自主意识。", noPage: true },
+  { nameZh: "毕姆", subtitleZh: "鲨鱼魔人 · 电次狂热粉", status: "死亡", statusClass: "red", img: "", route: "/beam", emoji: "🦈", descZh: "鲨鱼魔人，电次的狂热追随者。在战斗中总是冲在最前面，对电次有着近乎崇拜的忠诚。", deathZh: "在国际刺客篇中被圣诞老人杀害。" },
+  { nameZh: "圣诞老人", subtitleZh: "人偶恶魔契约者 · 国际刺客", status: "死亡（暂）", statusClass: "red", img: "", route: "/santa", emoji: "🎅", descZh: "国际刺客组织的首领之一，与人偶恶魔签订契约的疯狂老人。为了杀死电锯人不惜献上一切——包括自己的身体和灵魂。", deathZh: "被暗之恶魔以契约代价杀死。后被电锯人复活。" },
+  { nameZh: "枪之恶魔", subtitleZh: "恐惧的化身 · 终极武器", status: "已击败", statusClass: "blue", img: "", route: "/gun-devil", emoji: "🔫", descZh: "人类对枪的恐惧催生出的恶魔。仅用一次现身就在全球造成数百万人死亡。它的力量碎片被各国分配。是整个《电锯人》第一部故事的起源与终结。" },
+  { nameZh: "暗之恶魔", subtitleZh: " primal fear · 地狱统治者", status: "未知", statusClass: "blue", img: "", route: "/darkness-devil", emoji: "🌑", descZh: "最原始的恐惧之一——对黑暗的恐惧。居住在地狱的最深处，拥有强大到令人绝望的力量。只是站在那里就足以让在场所有人丧失战意。其存在本身即是终极恐怖。" },
+  { nameZh: "夜", subtitleZh: "战争恶魔 · 朝的另一半", status: "共存", statusClass: "blue", img: "", route: "/yoru", emoji: "⚔️", descZh: "战争恶魔的完整形态，寄宿在三鹰朝体内。与朝共用一具身体——冷酷、果断、为达目的不择手段。但与朝日渐增长的理解与羁绊正在改变她。", noPage: true },
+  { nameZh: "正义恶魔", subtitleZh: "谜之契约者", status: "未知", statusClass: "blue", img: "", route: "/justice", emoji: "⚖️", descZh: "第二部中出现的恶魔，与多名角色签订契约。TA的真实身份和目的是第二部最大的谜团之一。正义之名下包裹着最不可预测的恶意。" },
+  { nameZh: "蜘蛛恶魔", subtitleZh: "公安合作恶魔", status: "存活", statusClass: "green", img: "", route: "/spider", emoji: "🕷️", descZh: "与公安合作的恶魔之一，外形为巨大的蜘蛛。在国际刺客篇中为保护电次而协助战斗。她对玛奇玛有着近乎敬畏的忠诚。" },
+  { nameZh: "暴力恶魔", subtitleZh: "公安对魔4课", status: "死亡", statusClass: "red", img: "", route: "/violence", emoji: "💀", descZh: "披着人皮的恶魔，伪装成公安恶魔猎人加入对魔4课。虽然外表凶恶、力量惊人，却意外地遵守着人类的规则。", deathZh: "被圣诞老人的军队撕碎。" },
+  { nameZh: "永恒恶魔", subtitleZh: "无限循环的诅咒", status: "已击败", statusClass: "blue", img: "", route: "/eternity", emoji: "♾️", descZh: "将人对重复与囚禁的恐惧具象化的恶魔。能将猎物困在无限循环的空间中。曾将电次一行困在无限酒店三天三夜。" },
+  { nameZh: "蝙蝠恶魔", subtitleZh: "早期威胁", status: "死亡", statusClass: "red", img: "", route: "/bat-devil", emoji: "🦇", descZh: "早期出现的恶魔之一，绑架帕瓦的猫喵子作为人质。实力一般但狡诈。被电次用全力击败。" },
+  { nameZh: "蛇之恶魔", subtitleZh: "蕾塞的搭档", status: "死亡", statusClass: "red", img: "", route: "/snake", emoji: "🐍", descZh: "与蕾塞一同行动的蛇之恶魔。能和蕾塞默契配合进行联合攻击。虽然不算最强，但在战斗中展现出惊人的灵活性和配合能力。", deathZh: "与蕾塞一起被玛奇玛杀害。" },
+  { nameZh: "未来恶魔", subtitleZh: "预知未来的诅咒", status: "存活", statusClass: "green", img: "", route: "/future", emoji: "🔮", descZh: "能预知未来的恶魔，与秋签订了契约。他看到所有人的最糟糕结局并乐于告知——因为所有可见的未来都是悲剧。而他也无法改变任何事情。" },
+  { nameZh: "幽灵恶魔", subtitleZh: "姬野的契约者", status: "死亡", statusClass: "red", img: "", route: "/ghost", emoji: "👻", descZh: "与姬野签订契约的恶魔。能伸出隐形的手臂进行攻击或取物。在姬野牺牲自己后，它得以完全现形——一只由无数手臂组成的庞然大物。" },
+  { nameZh: "地狱恶魔", subtitleZh: "传送门恶魔", status: "未知", statusClass: "blue", img: "", route: "/hell-devil", emoji: "💀", descZh: "能在人间与地狱之间开启传送门的恶魔。曾在电次的战斗中将敌人整个拉入地狱。它是地狱的守门人。" },
+  { nameZh: "台风恶魔", subtitleZh: "自然灾害化身", status: "死亡", statusClass: "red", img: "", route: "/typhoon", emoji: "🌀", descZh: "以台风的恐惧为食的恶魔。在蕾塞篇章中与公安交战。体型巨大、破坏力惊人——但面对真正的强大时不堪一击。" },
+  { nameZh: "章鱼恶魔", subtitleZh: "吉田的契约者", status: "存活", statusClass: "green", img: "", route: "/octopus", emoji: "🐙", descZh: "与吉田宽文签订契约的恶魔。能召唤巨大章鱼触手进行攻击和防御。灵活多变，是第二部中不容小觑的力量。" },
+  { nameZh: "吉田宽文", subtitleZh: "高中生恶魔猎人", status: "存活", statusClass: "green", img: "", route: "/yoshida", emoji: "🎒", descZh: "第二部登场的神秘少年恶魔猎人。表面上是普通高中生，实际上与章鱼恶魔签订了契约。对电次有着不同寻常的兴趣和监视——他的真实立场至今成谜。" },
+  { nameZh: "岸边", subtitleZh: "公安恶魔猎人 · 传说", status: "存活", statusClass: "green", img: "", route: "/kishibe", emoji: "🗡️", descZh: "公安最资深的恶魔猎人之一，姬野和秋的前辈。经历过无数次九死一生的战斗却依然存活。他对玛奇玛有着深刻理解和警惕。第一部结束后收养了那由多并将其交给了电次。" },
+  { nameZh: "小小红", subtitleZh: "公安恶魔猎人 · 胆小的精英", status: "存活", statusClass: "green", img: "", route: "/kobeni", emoji: "😰", descZh: "公安对魔4课的成员。虽然总是胆小怕事、动不动就崩溃大哭，但意外地拥有极强的生存能力和战斗直觉。她是藤本树最成功的喜剧角色——在所有恐怖中保持无用的挣扎。" },
+  { nameZh: "东山小鳕", subtitleZh: "小小红的哥哥 · 神秘契约者", status: "存活", statusClass: "green", img: "", route: "/kobeni-brother", emoji: "👤", descZh: "小小红的哥哥，曾出现在玛奇玛的住宅中。他对小小红有着极端的保护欲和控制欲——而他的身份和契约至今成谜。" }
 ];
 
 const STORY_ARCS = [
@@ -228,7 +250,7 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '12px' }}>
             {CHARACTERS.map((char, i) => (
               <motion.div key={char.nameZh} custom={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}
-                onClick={() => { window.location.href = char.route; }}
+                onClick={() => { if (!char.noPage) window.location.href = char.route; }}
                 style={{
                   backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '8px',
                   border: '1px solid rgba(255,255,255,0.06)', overflow: 'hidden',
@@ -239,11 +261,15 @@ export default function Home() {
                 }}
                 onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.035)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
                 onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
-                <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '3/4' }}>
-                  <img src={char.img} alt={char.nameZh}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', filter: 'grayscale(0.8) contrast(1.15)', transition: 'all 0.6s' }}
-                    onMouseEnter={e => { e.currentTarget.style.filter = 'grayscale(0) contrast(1)'; e.currentTarget.style.transform = 'scale(1.05)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.filter = 'grayscale(0.8) contrast(1.15)'; e.currentTarget.style.transform = 'scale(1)'; }} />
+                <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '3/4', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(200,0,26,0.05)' }}>
+                  {char.img ? (
+                    <img src={char.img} alt={char.nameZh}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', filter: 'grayscale(0.8) contrast(1.15)', transition: 'all 0.6s' }}
+                      onMouseEnter={e => { e.currentTarget.style.filter = 'grayscale(0) contrast(1)'; e.currentTarget.style.transform = 'scale(1.05)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.filter = 'grayscale(0.8) contrast(1.15)'; e.currentTarget.style.transform = 'scale(1)'; }} />
+                  ) : (
+                    <span style={{ fontSize: '4rem', opacity: 0.4 }}>{char.emoji}</span>
+                  )}
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent 40%)' }} />
                   <div style={{
                     position: 'absolute', top: '12px', left: '12px',
